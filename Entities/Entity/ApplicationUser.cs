@@ -13,6 +13,6 @@ namespace Entities.Entity
         public string CellPhone { get; set; } = string.Empty;
 
         [Column("usr_type")]
-        public TypesUsers? Types { get; set; }
+        public TypesUser? Types { get; set; }
     }
 }

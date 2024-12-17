@@ -28,5 +28,8 @@ namespace Entities.Entity
         public DateTime DateUpdating { get; set; }
 
         [ForeignKey(nameof(ApplicationUser))]
+        [Column(Order = 1)]
+        public string UserId { get; set; } = string.Empty;
+        public virtual ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
     }
 }
