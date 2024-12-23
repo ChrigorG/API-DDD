@@ -4,11 +4,11 @@ using Entities.Entity;
 
 namespace Domain.Service
 {
-    public class ServiceNews : IServiceNews
+    public class NewsService : INewsService
     {
         private readonly INews _iNews;
 
-        public ServiceNews(INews iNews)
+        public NewsService(INews iNews)
         {
             _iNews = iNews;
         }
