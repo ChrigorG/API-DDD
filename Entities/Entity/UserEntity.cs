@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Entity
 {
-    public class ApplicationUser : IdentityUser
+    [Table("TB_USER")]
+    public class UserEntity : IdentityUser
     {
         [Column("usr_idade")]
         public int Age { get; set; }

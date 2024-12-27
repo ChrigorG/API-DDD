@@ -2,6 +2,8 @@
 {
     public interface IUser
     {
-        Task<bool> AddUser(string email, string password, int age, string cellPhone);
+        Task<bool> EmailExists(string email);
+
+        Task<bool> UserExists(string email, string password);
     }
 }

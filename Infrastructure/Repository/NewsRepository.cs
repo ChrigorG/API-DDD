@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Infrastructure.Repository
 {
-    public class NewsRepository : GenericRepository<News>, INews
+    public class NewsRepository : GenericRepository<NewsEntity>, INews
     {
 
         private readonly DbContextOptions<AppDbContext> _dbContextOptions;
@@ -17,7 +17,7 @@ namespace Infrastructure.Repository
             _dbContextOptions = new DbContextOptions<AppDbContext>();
         }
 
-        public async Task<List<News>> AllNews(Expression<Func<News, bool>> exNews)
+        public async Task<List<NewsEntity>> AllNews(Expression<Func<NewsEntity, bool>> exNews)
         {
             using (var db = new AppDbContext(_dbContextOptions))
             {

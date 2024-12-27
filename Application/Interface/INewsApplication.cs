@@ -3,12 +3,12 @@ using Entities.Entity;
 
 namespace Application.Interface
 {
-    public interface INewsApplication : IGenericApplication<News>
+    public interface INewsApplication : IGenericApplication<NewsEntity>
     {
-        Task<List<News>> GetAllNews();
+        Task<List<NewsEntity>> GetAllNews();
 
-        Task AddNews(News news);
+        Task AddNews(NewsEntity news);
 
-        Task UpdateNews(News news);
+        Task UpdateNews(NewsEntity news);
     }
 }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities.Entity
 {
     [Table("TB_NEWS")]
-    public class News : Notify
+    public class NewsEntity : Notify
     {
         [Column("ntf_id")]
         public int Id { get; set; }
@@ -30,6 +30,6 @@ namespace Entities.Entity
         [ForeignKey(nameof(ApplicationUser))]
         [Column(Order = 1)]
         public string UserId { get; set; } = string.Empty;
-        public virtual ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
+        public virtual UserEntity ApplicationUser { get; set; } = new UserEntity();
     }
 }

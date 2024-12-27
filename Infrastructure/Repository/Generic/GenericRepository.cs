@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace Infrastructure.Repository.Generic
 {
-    public class GenericRepository<T> : IGeneric<T>, IDisposable where T : class
+    public abstract class GenericRepository<T> : IGeneric<T>, IDisposable where T : class
     {
         private readonly DbContextOptions<AppDbContext> _dbContextOptions;
 

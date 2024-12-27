@@ -1,0 +1,4 @@
+﻿
+PM> Add-Migration Inicial -Context AppDbContext
+
+PM> Update-Database -Context AppDbContext

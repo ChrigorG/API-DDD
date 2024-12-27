@@ -5,10 +5,10 @@ namespace Domain.Interface.InterfaceService
     // Essa Interface de Serviço não será usado herança com o Generic
     public interface INewsService
     {
-        Task<List<News>> GetAllNews();
+        Task<List<NewsEntity>> GetAllNews();
 
-        Task AddNews(News news);
+        Task AddNews(NewsEntity news);
 
-        Task UpdateNews(News news);
+        Task UpdateNews(NewsEntity news);
     }
 }

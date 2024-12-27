@@ -4,8 +4,8 @@ using System.Linq.Expressions;
 
 namespace Domain.Interface
 {
-    public interface INews : IGeneric<News>
+    public interface INews : IGeneric<NewsEntity>
     {
-        Task<List<News>> AllNews(Expression<Func<News, bool>> exNews);
+        Task<List<NewsEntity>> AllNews(Expression<Func<NewsEntity, bool>> exNews);
     }
 }

@@ -13,7 +13,7 @@ namespace Domain.Service
             _iNews = iNews;
         }
 
-        public async Task AddNews(News news)
+        public async Task AddNews(NewsEntity news)
         {
             var validateTitle = news.ValidatePropertiesString(news.Title, nameof(news.Title));
             var validateInformation = news.ValidatePropertiesString(news.Information, nameof(news.Information));
@@ -27,7 +27,7 @@ namespace Domain.Service
             }
         }
 
-        public async Task UpdateNews(News news)
+        public async Task UpdateNews(NewsEntity news)
         {
             var validateTitle = news.ValidatePropertiesString(news.Title, nameof(news.Title));
             var validateInformation = news.ValidatePropertiesString(news.Information, nameof(news.Information));
@@ -41,7 +41,7 @@ namespace Domain.Service
             }
         }
 
-        public async Task<List<News>> GetAllNews()
+        public async Task<List<NewsEntity>> GetAllNews()
         {
             return await _iNews.AllNews(n => n.Status);
         }

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Settings
 {
-    public class AppDbContext : IdentityDbContext<ApplicationUser>
+    public class AppDbContext : IdentityDbContext<UserEntity>
     {
 
         public AppDbContext(DbContextOptions<AppDbContext> db) : base(db){}
 
-        public DbSet<News> News { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<NewsEntity> News { get; set; }
+        public DbSet<UserEntity> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,15 +23,14 @@ namespace Infrastructure.Settings
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<ApplicationUser>().ToTable("AspNetUsers").HasKey(t => t.Id);
+            builder.Entity<UserEntity>().HasKey(t => t.Id);
 
             base.OnModelCreating(builder);
         }
 
         public string GetStringConnection()
         {
-            string strCon = "Server=(localdb)\\mssqllocaldb;Database=API_DDD;Trusted_Connection=True;MultipleActiveResultSets=true";
-            return strCon;
+            return "Server=(localdb)\\mssqllocaldb;Database=API_DDD;Trusted_Connection=True;MultipleActiveResultSets=true";
         }
     }
 }

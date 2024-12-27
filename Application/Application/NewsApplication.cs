@@ -18,44 +18,44 @@ namespace Application.Application
         }
 
         // Custom 
-        public async Task<List<News>> GetAllNews()
+        public async Task<List<NewsEntity>> GetAllNews()
         {
             return await _newsService.GetAllNews();
         }
 
-        public async Task AddNews(News news)
+        public async Task AddNews(NewsEntity news)
         {
             await _newsService.AddNews(news);
         }
 
-        public async Task UpdateNews(News news)
+        public async Task UpdateNews(NewsEntity news)
         {
             await _newsService.UpdateNews(news);
         }
 
 
         // Generics
-        public async Task<News?> Get(int id)
+        public async Task<NewsEntity?> Get(int id)
         {
             return await _iNews.Get(id);
         }
 
-        public async Task<List<News>> Get()
+        public async Task<List<NewsEntity>> Get()
         {
             return await _iNews.Get();
         }
 
-        public async Task Add(News entity)
+        public async Task Add(NewsEntity entity)
         {
             await _iNews.Add(entity);
         }
 
-        public async Task Update(News entity)
+        public async Task Update(NewsEntity entity)
         {
             await _iNews.Update(entity);
         }
 
-        public async Task Delete(News entity)
+        public async Task Delete(NewsEntity entity)
         {
             await _iNews.Delete(entity);
         }
