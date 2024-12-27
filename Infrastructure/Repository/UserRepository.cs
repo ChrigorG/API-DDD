@@ -8,24 +8,16 @@ namespace Infrastructure.Repository
 {
     public class UserRepository : GenericRepository<UserEntity>, IUser
     {
-        private readonly DbContextOptions<AppDbContext> _dbContextOptions;
-
-        public UserRepository()
-        {
-            _dbContextOptions = new DbContextOptions<AppDbContext>();
-        }
+        public UserRepository(AppDbContext db) : base(db) { }
 
         public async Task<bool> EmailExists(string email)
         {
             try
             {
-                using (var db = new AppDbContext(_dbContextOptions))
-                {
-                    return await db.User
-                        .Where(x => x.Email == email)
-                        .AsNoTracking()
-                        .AnyAsync();
-                }
+                return await _db.User
+                    .Where(x => x.Email == email)
+                    .AsNoTracking()
+                    .AnyAsync();
             } catch (Exception)
             {
                 return false;
@@ -36,13 +28,10 @@ namespace Infrastructure.Repository
         {
             try
             {
-                using (var db = new AppDbContext(_dbContextOptions))
-                {
-                    return await db.User
-                        .Where(x => x.Email == email && x.PasswordHash == password)
-                        .AsNoTracking()
-                        .AnyAsync();
-                }
+                return await _db.User
+                    .Where(x => x.Email == email && x.PasswordHash == password)
+                    .AsNoTracking()
+                    .AnyAsync();
             } catch (Exception)
             {
                 return false;

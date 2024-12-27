@@ -7,8 +7,8 @@ namespace Domain.Interface.InterfaceService
     {
         Task<List<NewsEntity>> GetAllNews();
 
-        Task AddNews(NewsEntity news);
+        Task<NewsEntity?> AddNews(NewsEntity news);
 
-        Task UpdateNews(NewsEntity news);
+        Task<NewsEntity?> UpdateNews(NewsEntity news);
     }
 }

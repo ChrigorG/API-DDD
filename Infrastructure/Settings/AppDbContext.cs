@@ -6,8 +6,12 @@ namespace Infrastructure.Settings
 {
     public class AppDbContext : IdentityDbContext<UserEntity>
     {
+        private readonly DbContextOptions<AppDbContext> _db;
 
-        public AppDbContext(DbContextOptions<AppDbContext> db) : base(db){}
+        public AppDbContext(DbContextOptions<AppDbContext> db) : base(db)
+        {
+            _db = db;
+        }
 
         public DbSet<NewsEntity> News { get; set; }
         public DbSet<UserEntity> User { get; set; }

@@ -23,14 +23,14 @@ namespace Application.Application
             return await _newsService.GetAllNews();
         }
 
-        public async Task AddNews(NewsEntity news)
+        public async Task<NewsEntity?> AddNews(NewsEntity news)
         {
-            await _newsService.AddNews(news);
+            return await _newsService.AddNews(news);
         }
 
-        public async Task UpdateNews(NewsEntity news)
+        public async Task<NewsEntity?> UpdateNews(NewsEntity news)
         {
-            await _newsService.UpdateNews(news);
+            return await _newsService.UpdateNews(news);
         }
 
 
@@ -45,19 +45,19 @@ namespace Application.Application
             return await _iNews.Get();
         }
 
-        public async Task Add(NewsEntity entity)
+        public async Task<NewsEntity?> Add(NewsEntity entity)
         {
-            await _iNews.Add(entity);
+            return await _iNews.Add(entity);
         }
 
-        public async Task Update(NewsEntity entity)
+        public async Task<NewsEntity?> Update(NewsEntity entity)
         {
-            await _iNews.Update(entity);
+            return await _iNews.Update(entity);
         }
 
-        public async Task Delete(NewsEntity entity)
+        public async Task<NewsEntity?> Delete(NewsEntity entity)
         {
-            await _iNews.Delete(entity);
+            return await _iNews.Delete(entity);
         }
     }
 }

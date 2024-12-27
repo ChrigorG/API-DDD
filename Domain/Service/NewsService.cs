@@ -13,7 +13,7 @@ namespace Domain.Service
             _iNews = iNews;
         }
 
-        public async Task AddNews(NewsEntity news)
+        public async Task<NewsEntity?> AddNews(NewsEntity news)
         {
             var validateTitle = news.ValidatePropertiesString(news.Title, nameof(news.Title));
             var validateInformation = news.ValidatePropertiesString(news.Information, nameof(news.Information));
@@ -23,11 +23,13 @@ namespace Domain.Service
                 news.DateRegister = DateTime.Now;
                 news.Status = true;
 
-                await _iNews.Add(news);
+                return await _iNews.Add(news);
             }
+
+            return null;
         }
 
-        public async Task UpdateNews(NewsEntity news)
+        public async Task<NewsEntity?> UpdateNews(NewsEntity news)
         {
             var validateTitle = news.ValidatePropertiesString(news.Title, nameof(news.Title));
             var validateInformation = news.ValidatePropertiesString(news.Information, nameof(news.Information));
@@ -37,8 +39,10 @@ namespace Domain.Service
                 news.DateUpdating = DateTime.Now;
                 news.Status = true;
 
-                await _iNews.Update(news);
+                return await _iNews.Update(news);
             }
+
+            return null;
         }
 
         public async Task<List<NewsEntity>> GetAllNews()

@@ -9,20 +9,11 @@ namespace Infrastructure.Repository
 {
     public class NewsRepository : GenericRepository<NewsEntity>, INews
     {
-
-        private readonly DbContextOptions<AppDbContext> _dbContextOptions;
-
-        public NewsRepository() 
-        {
-            _dbContextOptions = new DbContextOptions<AppDbContext>();
-        }
+        public NewsRepository(AppDbContext db) : base(db) { }
 
         public async Task<List<NewsEntity>> AllNews(Expression<Func<NewsEntity, bool>> exNews)
         {
-            using (var db = new AppDbContext(_dbContextOptions))
-            {
-                return await db.News.Where(exNews).AsNoTracking().ToListAsync();
-            }
+            return await _db.News.Where(exNews).AsNoTracking().ToListAsync();
         }
     }
 }
