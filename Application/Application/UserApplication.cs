@@ -16,10 +16,5 @@ namespace Application.Application
         {
             return await _iUser.EmailExists(email);
         }
-
-        public async Task<bool> UserExists(string email, string password)
-        {
-            return await _iUser.UserExists(email, password);
-        }
     }
 }

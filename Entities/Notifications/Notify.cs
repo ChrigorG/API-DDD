@@ -24,23 +24,7 @@ namespace Entities.Notifications
             {
                 this.Notifications.Add(new Notify
                 {
-                    Message = "Campo Obrigatório",
-                    NameProperties = nameProperty
-                });
-
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool ValidatePropertiesDecimal(decimal value, string nameProperty)
-        {
-            if (value < 1 || string.IsNullOrEmpty(nameProperty))
-            {
-                this.Notifications.Add(new Notify
-                {
-                    Message = "Valor deve ser maior que 0",
+                    Message = "Field Mandatory",
                     NameProperties = nameProperty
                 });
 

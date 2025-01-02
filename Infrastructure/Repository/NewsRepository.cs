@@ -13,7 +13,7 @@ namespace Infrastructure.Repository
 
         public async Task<List<NewsEntity>> AllNews(Expression<Func<NewsEntity, bool>> exNews)
         {
-            return await _db.News.Where(exNews).AsNoTracking().ToListAsync();
+            return await _db.News.Include(x => x.UserEntity).Where(exNews).AsNoTracking().ToListAsync();
         }
     }
 }

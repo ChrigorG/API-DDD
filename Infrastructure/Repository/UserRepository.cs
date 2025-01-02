@@ -23,19 +23,5 @@ namespace Infrastructure.Repository
                 return false;
             }
         }
-
-        public async Task<bool> UserExists(string email, string password)
-        {
-            try
-            {
-                return await _db.User
-                    .Where(x => x.Email == email && x.PasswordHash == password)
-                    .AsNoTracking()
-                    .AnyAsync();
-            } catch (Exception)
-            {
-                return false;
-            }
-        }
     }
 }

@@ -27,9 +27,9 @@ namespace Entities.Entity
         [Column("ntf_date_updating")]
         public DateTime DateUpdating { get; set; }
 
-        [ForeignKey(nameof(ApplicationUser))]
+        [ForeignKey(nameof(UserEntity))]
         [Column(Order = 1)]
         public string UserId { get; set; } = string.Empty;
-        public virtual UserEntity ApplicationUser { get; set; } = new UserEntity();
+        public virtual UserEntity UserEntity { get; set; } = new UserEntity();
     }
 }

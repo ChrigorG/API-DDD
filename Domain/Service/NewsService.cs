@@ -13,6 +13,16 @@ namespace Domain.Service
             _iNews = iNews;
         }
 
+        public async Task<List<NewsEntity>> GetNews()
+        {
+            return await _iNews.Get();
+        }
+
+        public async Task<NewsEntity?> GetNews(int id)
+        {
+            return await _iNews.Get(id);
+        }
+
         public async Task<NewsEntity?> AddNews(NewsEntity news)
         {
             var validateTitle = news.ValidatePropertiesString(news.Title, nameof(news.Title));
@@ -37,17 +47,15 @@ namespace Domain.Service
             if (validateTitle && validateInformation)
             {
                 news.DateUpdating = DateTime.Now;
-                news.Status = true;
-
                 return await _iNews.Update(news);
             }
 
             return null;
         }
 
-        public async Task<List<NewsEntity>> GetAllNews()
+        public async Task<NewsEntity?> DeleteNews(NewsEntity news)
         {
-            return await _iNews.AllNews(n => n.Status);
+            return await _iNews.Delete(news);
         }
     }
 }

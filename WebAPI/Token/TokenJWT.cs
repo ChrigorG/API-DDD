@@ -11,8 +11,6 @@ namespace WebAPI.Token
             _token = token;
         }
 
-        public DateTime ValidTo => _token.ValidTo;
-
         public string Value => new JwtSecurityTokenHandler().WriteToken(_token);
     }
 }
